@@ -1,0 +1,51 @@
+<h1>Todos os Funcionarios</h1>
+</br>
+<a href="/application/funcionario/create">Novo Funcionario</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Data de Nasc.</th>
+            <th>Nacionalidade</th>
+            <th>Etnia</th>
+            <th>Escolaridade</th>
+            <th>UF</th>
+            <th>Cidade</th>
+            <th>End. Complemento</th>
+            <th>Data de Contratacao</th>
+            <th>Salario</th>
+            <th>Telefone</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach($this->funcionarios as $o): ?>
+        <tr>
+            <td><?php echo $o->getNome();?></td>
+            <td><?php echo $o->getData_de_nascimento();?></td>
+            <td><?php echo $o->getPais_de_nascimento();?></td>
+            <td><?php echo $o->getCor();?></td>
+            <td><?php echo $o->getEscolaridade();?></td>
+            <td><?php echo $o->getUf();?></td>
+            <td><?php echo $o->getCidade();?></td>
+            <td><?php echo $o->getComplemento();?></td>
+            <td><?php echo $o->getData_admissao();?></td>
+            <td><?php echo $o->getSalario();?></td>
+            <td><?php echo $o->getTelefone();?></td>
+            <td><?php echo $o->getEmail();?></td>
+            <td>
+                <a href="/application/funcionario/edit/<?php echo $o->getId();?>">
+                Editar
+                </a>
+                |
+                <a href="/application/funcionario/delete/<?php echo $o->getId();?>">
+                Excluir
+                </a>
+            </td>
+        </tr>
+        <?php endforeach;?>
+    </tbody>
+</table>
+
+</br>
+</br>

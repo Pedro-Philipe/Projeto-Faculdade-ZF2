@@ -1,0 +1,64 @@
+
+<form name="form" method="POST"  action="/application/funcionario/edit/<?php echo $this->funcionario->getId();?>">
+	<input type="hidden" name="id" value="<?php echo $this->funcionario->getId();?>"/>
+	<label>Nome</label>
+	<input type="text" name="nome" value="<?php echo $this->funcionario->getNome();?>"/>
+	<br/>
+
+	<label>Data de Nascimento</label>
+	<input type="text" name="endereco" value="<?php echo $this->funcionario->getEndereco();?>"/>
+	<br/>
+
+	<label>Cidade/UF</label>
+	<input type="text" name="cidade" value="<?php echo $this->funcionario->getCidade();?>"/>
+	<br/>
+	<label>Bairro</label>
+	<input type="text" name="bairro" value="<?php echo $this->funcionario->getBairro();?>"/>
+	<br/>
+
+	<button class="btn btn-success" type="submit">Enviar</button>
+</form>
+
+
+
+
+<form name="form" method="POST" action="/application/funcionario/edit/<?php echo $this->funcionario->getId();?>">
+  <input type="hidden" name="id" value="<?php echo $this->funcionario->getId();?>"/>
+	<label>Nome</label>
+	<input type="text" name="nome" value="<?php echo $this->funcionario->getNome();?>" />
+	<br/>
+	<label>Data de Nascimento</label>
+	<input type="text" name="data_de_nascimento" value="<?php echo $this->funcionario->getData_de_nascimento();?>" />
+	<br/>
+	<label>Nacionalidade</label>
+	<input type="text" name="pais_de_nascimento" value="<?php echo $this->funcionario->getPais_de_nascimento();?>"/>
+	<br/>
+	<label>Cor/Etinia</label>
+	<input type="text" name="cor" value="<?php echo $this->funcionario->getCor();?>"/>
+	<br/>
+	<label>Escolaridade</label>
+	<input type="text" name="escolaridade" value="<?php echo $this->funcionario->getEscolaridade();?>"/>
+	<br/>
+	<label>UF</label>
+	<input type="text" name="uf" value="<?php echo $this->funcionario->getUf();?>" />
+	<br/>
+	<label>Cidade</label>
+	<input type="text" name="cidade" value="<?php echo $this->funcionario->getCidade();?>" />
+	<br/>
+	<label>Complemento</label>
+	<input type="text" name="complemento" value="<?php echo $this->funcionario->getComplemento();?>"/>
+	<br/>
+	<label>Data de Admissão</label>
+	<input type="text" name="data_admissao" value="<?php echo $this->funcionario->getData_admissao();?>"/>
+	<br/>
+	<label>Salario</label>
+	<input type="text" name="salario" value="<?php echo $this->funcionario->getSalario();?>"/>
+	<br/>
+	<label>Telefone</label>
+	<input type="text" name="telefone" value="<?php echo $this->funcionario->getTelefone();?>"/>
+	<br/>
+	<label>Email</label>
+	<input type="text" name="email" value="<?php echo $this->funcionario->getEmail();?>"/>
+	<br/>
+	<button class="btn btn-success" type="submit">Enviar</button>
+</form>
