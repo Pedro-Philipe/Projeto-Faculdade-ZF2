@@ -1,33 +1,159 @@
-<form name="form" method="POST" action="/application/funcionario/create">
+<script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" />
+<script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+<script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
+<script src="http://files.rafaelwendel.com/jquery.maskedinput.js"></script>
+
+<script>
+$(function() {
+    $( "#data_de_nascimento" ).datepicker();
+    $( "#data_admissao" ).datepicker();
+
+		$(document).ready(function(){
+				tinymce.init({
+						 plugins:"paste",
+						 menubar: "false",
+						 toolbar: "false",
+				     statusbar: false,
+						 paste_as_text: true,
+						 selector: 'textarea',
+						 height: 50,
+						 width: 300,
+						 setup: function (ed) {
+					       ed.on('init', function (e) {
+					//	 ExecucaoDaFuncaoLimiterPag('id');
+									}).on('keyup',function (e) {
+					// ExecucaoDaFuncaoLimiterPag('id');
+					       });
+						 }
+				});
+
+
+				 $("#btn_salvar").click(function() {
+					 var validacao = false;
+				     if(document.getElementById("nome").value.length > 0){
+						     validacao = true;
+								 	$("#cadastro").submit();
+						 }else{
+								  $("#msgNome").html("<font color='red'>Preencha o campo Nome!</font>");
+									return false;
+						 }
+				     if(document.getElementById("nome").value.length > 0){
+						     validacao = true;
+						 }else{
+								  $("#msgNome").html("<font color='red'>Preencha o campo Nome!</font>");
+									return false;
+						 }
+				     if(document.getElementById("nome").value.length > 0){
+						     validacao = true;
+						 }else{
+								  $("#msgNome").html("<font color='red'>Preencha o campo Nome!</font>");
+									return false;
+						 }
+				     if(document.getElementById("nome").value.length > 0){
+						     validacao = true;
+						 }else{
+								  $("#msgNome").html("<font color='red'>Preencha o campo Nome!</font>");
+									return false;
+						 }
+				     if(document.getElementById("nome").value.length > 0){
+						     validacao = true;
+						 }else{
+								  $("#msgNome").html("<font color='red'>Preencha o campo Nome!</font>");
+									return false;
+						 }
+				     if(document.getElementById("nome").value.length > 0){
+						     validacao = true;
+						 }else{
+								  $("#msgNome").html("<font color='red'>Preencha o campo Nome!</font>");
+									return false;
+						 }
+
+
+				 });
+
+
+
+		});
+});
+</script>
+
+<form id="cadastro" name="form" method="POST" action="/application/funcionario/create">
 	<label>Nome</label>
-	<input type="text" name="nome" />
+	<input type="text" name="nome" id="nome"/>
+	<div id="msgNome"></div>
 	<br/>
+
 	<label>Data de Nascimento</label>
-	<input type="text" name="data_de_nascimento" />
+	<input type="date" name="data_de_nascimento" id="data_de_nascimento"/>
+	<div id="msgdata_de_nascimento"></div>
 	<br/>
+
 	<label>Nacionalidade</label>
-	<input type="text" name="pais_de_nascimento" />
+	<input type="text" name="pais_de_nascimento" id="nacionalidade"/>
+	<div id="msgnacionalidade"></div>
 	<br/>
+
 	<label>Cor/Etinia</label>
-	<input type="text" name="cor" />
+	<input type="text" name="cor" id="cor" />
+	<div id="msgcor"></div>
 	<br/>
+
 	<label>Escolaridade</label>
-	<input type="text" name="escolaridade" />
+	<input type="text" name="escolaridade" id="escolaridade"/>
+	<div id="msgescolaridade"></div>
 	<br/>
-	<label>UF</label>
-	<input type="text" name="uf" />
+
+  <label>Estado</label>
+<select name="uf" id="uf">
+		<option value="">Selecione</option>
+		<option value="AC">Acre</option>
+		<option value="AL">Alagoas</option>
+		<option value="AP">Amapá</option>
+		<option value="AM">Amazonas</option>
+		<option value="BA">Bahia</option>
+		<option value="CE">Ceará</option>
+		<option value="DF">Distrito Federal</option>
+		<option value="ES">Espirito Santo</option>
+		<option value="GO">Goiás</option>
+		<option value="MA">Maranhão</option>
+		<option value="MS">Mato Grosso do Sul</option>
+		<option value="MT">Mato Grosso</option>
+		<option value="MG">Minas Gerais</option>
+		<option value="PA">Pará</option>
+		<option value="PB">Paraíba</option>
+		<option value="PR">Paraná</option>
+		<option value="PE">Pernambuco</option>
+		<option value="PI">Piauí</option>
+		<option value="RJ">Rio de Janeiro</option>
+		<option value="RN">Rio Grande do Norte</option>
+		<option value="RS">Rio Grande do Sul</option>
+		<option value="RO">Rondônia</option>
+		<option value="RR">Roraima</option>
+		<option value="SC">Santa Catarina</option>
+		<option value="SP">São Paulo</option>
+		<option value="SE">Sergipe</option>
+		<option value="TO">Tocantins</option>
+</select>
+	<div id="msguf"></div>
 	<br/>
+
+
 	<label>Cidade</label>
-	<input type="text" name="cidade" />
+	<input type="text" name="cidade" id="cidade"/>
+	<div id="msgcidade"></div>
 	<br/>
+
 	<label>Complemento</label>
-	<input type="text" name="complemento" />
+	<textarea type="text" name="complemento" placeholder="Digite todos os dados e referências do endereço" row="30"></textarea>
+  <div id="msgcomplemento"></div>
 	<br/>
-	<label>Data de Admiss�o</label>
-	<input type="text" name="data_admissao" />
+	<label>Data de Admissão</label>
+	<input type="date" name="data_admissao" id="data_admissao"/>
+	<div id="msgdata_admissao"></div>
 	<br/>
 	<label>Salario</label>
-	<input type="text" name="salario" />
+	<input id="salario" type="text" name="salario" />
 	<br/>
 	<label>Telefone</label>
 	<input type="text" name="telefone" />
@@ -35,5 +161,5 @@
 	<label>Email</label>
 	<input type="text" name="email" />
 	<br/>
-	<button class="btn btn-success" type="submit">Enviar</button>
+	<button class="btn btn-success" id="btn_salvar" type="submit">Enviar</button>
 </form>
