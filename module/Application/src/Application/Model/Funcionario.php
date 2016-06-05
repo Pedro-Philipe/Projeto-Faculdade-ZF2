@@ -13,6 +13,8 @@ class Funcionario{
 	private $salario;
 	private $telefone;
 	private $email;
+	private $rg;
+	private $cpf;
 
     public function getId()
     {
@@ -34,7 +36,7 @@ class Funcionario{
     }
     public function getData_de_nascimento()
     {
-        return $this->endereco;
+        return $this->data_de_nascimento;
     }
     private function setData_de_nascimento($data_de_nascimento)
     {
@@ -81,7 +83,7 @@ class Funcionario{
     {
         return $this->cidade;
     }
-    private function setCidade($uf)
+    private function setCidade($cidade)
     {
         $this->cidade = $cidade;
         return $this;
@@ -97,7 +99,7 @@ class Funcionario{
     }
     public function getData_admissao()
     {
-        return $this->complemento;
+        return $this->data_admissao;
     }
     private function setData_admissao($data_admissao)
     {
@@ -131,6 +133,24 @@ class Funcionario{
         $this->email = $email;
         return $this;
     }
+    public function getRg()
+    {
+        return $this->rg;
+    }
+    private function setRg($rg)
+    {
+        $this->rg = $rg;
+        return $this;
+    }
+    public function getCpf()
+    {
+        return $this->cpf;
+    }
+    private function setCpf($cpf)
+    {
+        $this->cpf = $cpf;
+        return $this;
+    }
 	public function exchangeArray(array $data){
 		$this->setId(isset($data['id'])?$data['id']:0)
 			->setNome($data['nome'])
@@ -144,6 +164,8 @@ class Funcionario{
 			->setData_admissao($data['data_admissao'])
 			->setSalario($data['salario'])
 			->setTelefone($data['telefone'])
+			->setRg($data['rg'])
+			->setCpf($data['cpf'])
 			->setEmail($data['email']);
 	}
 	public function getArrayCopy(){
@@ -151,6 +173,7 @@ class Funcionario{
 			'id' => $this->getId(),
 			'nome' => $this->getNome(),
 			'data_de_nascimento' => $this->getData_de_nascimento(),
+			'cor' => $this->getCor(),
 			'pais_de_nascimento' => $this->getPais_de_nascimento(),
 			'escolaridade' => $this->getEscolaridade(),
 			'uf' => $this->getUf(),
@@ -159,6 +182,8 @@ class Funcionario{
 			'data_admissao' => $this->getData_admissao(),
 			'salario' => $this->getSalario(),
 			'telefone' => $this->getTelefone(),
+			'rg' => $this->getRg(),
+			'cpf' => $this->getCpf(),
 			'email' => $this->getEmail()
 		];
 	}

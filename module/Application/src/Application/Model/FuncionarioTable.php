@@ -24,7 +24,7 @@ class FuncionarioTable{
 			$this->tableGateway->update($funcionario->getArrayCopy(),
 				['id' => $oldFuncionario->getId()]);
 		}else{
-		  throw new \Exception("Funcionario n„o encontrado");
+		  throw new \Exception("Funcionario n√£o encontrado");
 	   }
 	}
 	public function delete($id){

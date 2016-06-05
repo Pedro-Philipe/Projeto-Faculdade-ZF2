@@ -9,7 +9,9 @@ $(function() {
     $( "#data_de_nascimento" ).datepicker();
     $( "#data_admissao" ).datepicker();
 
+
 		$(document).ready(function(){
+
 				tinymce.init({
 						 plugins:"paste",
 						 menubar: "false",
@@ -28,6 +30,10 @@ $(function() {
 						 }
 				});
 
+        $("#telefone").change(function() {
+            $("#telefone").mask("(99)99999-9999");
+          
+        });
 
 				 $("#btn_salvar").click(function() {
 					 var validacao = false;
@@ -69,10 +75,7 @@ $(function() {
 									return false;
 						 }
 
-
 				 });
-
-
 
 		});
 });
@@ -82,6 +85,16 @@ $(function() {
 	<label>Nome</label>
 	<input type="text" name="nome" id="nome"/>
 	<div id="msgNome"></div>
+	<br/>
+
+	<label>RG</label>
+	<input type="text" name="nome" id="rg"/>
+	<div id="msgrg"></div>
+	<br/>
+
+	<label>CPF</label>
+	<input type="text" name="cpf" id="cpf"/>
+	<div id="msgcpf"></div>
 	<br/>
 
 	<label>Data de Nascimento</label>
@@ -155,8 +168,8 @@ $(function() {
 	<label>Salario</label>
 	<input id="salario" type="text" name="salario" />
 	<br/>
-	<label>Telefone</label>
-	<input type="text" name="telefone" />
+	<label>Telefone Celular</label>
+	<input type="text" name="telefone" id="telefone"/>
 	<br/>
 	<label>Email</label>
 	<input type="text" name="email" />
