@@ -19,6 +19,13 @@ class FuncionarioController extends AbstractActionController{
         	'funcionarios' => $funcionarios
         ]);
     }
+    public function graficoAction()
+    {
+    	$funcionarios = $this->getServiceLocator()->get('Application\Model\FuncionarioTable')->findAll();
+        return new ViewModel([
+        	'funcionarios' => $funcionarios
+        ]);
+    }
     public function createAction(){
     	if($this->getRequest()->isPost()){
     		$data = $this->params()->fromPost();
