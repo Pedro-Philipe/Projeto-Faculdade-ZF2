@@ -3,15 +3,18 @@
 <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
 <script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
 <script src="http://files.rafaelwendel.com/jquery.maskedinput.js"></script>
+<script src="https://raw.githubusercontent.com/plentz/jquery-maskmoney/master/dist/jquery.maskMoney.min.js"></script>
 
 <script>
+
+$("#salario").change(function(){
+           $("#salario").maskMoney({decimal:",", thousands:"."});
+});
+
 $(function() {
     $( "#data_de_nascimento" ).datepicker();
     $( "#data_admissao" ).datepicker();
-
-
 		$(document).ready(function(){
-
 				tinymce.init({
 						 plugins:"paste",
 						 menubar: "false",
@@ -30,59 +33,157 @@ $(function() {
 						 }
 				});
 
+
+
         $("#telefone").change(function() {
             $("#telefone").mask("(99)99999-9999");
-        });
-        $("#rg").change(function() {
-            $("#rg").mask("9.999.999");
         });
 
         $("#cpf").change(function() {
             $("#cpf").mask("999.999.999-99");
         });
 
-				 $("#btn_salvar").click(function() {
-					 var validacao = false;
-				     if(document.getElementById("nome").value.length > 0){
-						     validacao = true;
-								 	$("#cadastro").submit();
-						 }else{
-								  $("#msgNome").html("<font color='red'>Preencha o campo Nome!</font>");
-									return false;
-						 }
-				     if(document.getElementById("rg").value.length > 0){
-						     validacao = true;
-						 }else{
-								  $("#msgNome").html("<font color='red'>Preencha o campo RG!</font>");
-									return false;
-						 }
-				     if(document.getElementById("cpf").value.length > 0){
-						     validacao = true;
-						 }else{
-								  $("#msgNome").html("<font color='red'>Preencha o campo CPF!</font>");
-									return false;
-						 }
-				     if(document.getElementById("nome").value.length > 0){
-						     validacao = true;
-						 }else{
-								  $("#msgNome").html("<font color='red'>Preencha o campo Nome!</font>");
-									return false;
-						 }
-				     if(document.getElementById("nome").value.length > 0){
-						     validacao = true;
-						 }else{
-								  $("#msgNome").html("<font color='red'>Preencha o campo Nome!</font>");
-									return false;
-						 }
-				     if(document.getElementById("nome").value.length > 0){
-						     validacao = true;
-						 }else{
-								  $("#msgNome").html("<font color='red'>Preencha o campo Nome!</font>");
-									return false;
-						 }
+        $("#rg").change(function() {
+            $("#rg").mask("9.999.999");
+        });
 
-				 });
 
+
+				//  $("#btn_salvar").click(function(e) {
+        //    validacaonome = false;
+        //    validacaorg = false;
+        //    validacaocpf = false;
+        //    validacaodata_de_nascimento = false;
+        //    validacaonacionalidade = false;
+        //    validacaocor = false;
+        //    validacaoescolaridade = false;
+        //    validacaouf = false;
+        //    validacaocidade = false;
+        // //   validacaocomplemento = false,
+        //    validacaotelefone = false;
+        //    validacaoemail = false;
+        //    validacaosalario = false;
+        //    validacaodata_admissao = false;
+        //
+        //
+        //    if(document.getElementById("nome").value.length > 0){
+        //        validacaonome = true;
+        //
+        //    }else{
+        //         $("#msgnome").html("<font color='red'>Preencha o campo Nome!</font>");
+        //
+        //    }
+        //    if(document.getElementById("rg").value.length > 0){
+        //        validacaorg = true;
+        //
+        //    }else{
+        //         $("#msgrg").html("<font color='red'>Preencha o campo RG!</font>");
+        //
+        //    }
+        //    if(document.getElementById("cpf").value.length > 0){
+        //        validacaocpf = true;
+        //
+        //    }else{
+        //         $("#msgcpf").html("<font color='red'>Preencha o campo CPF!</font>");
+        //
+        //    }
+        //    if(document.getElementById("data_de_nascimento").value.length > 0){
+        //        validacaodata_de_nascimento = true;
+        //
+        //    }else{
+        //         $("#msgdata_de_nascimento").html("<font color='red'>Preencha o campo Data de Nascimento!</font>");
+        //
+        //    }
+        //    if(document.getElementById("nacionalidade").value.length > 0){
+        //        validacanacionalidade = true;
+        //
+        //    }else{
+        //         $("#msgpais_de_nascimento").html("<font color='red'>Preencha o campo Nacionalidade!</font>");
+        //
+        //     }
+        //    if(document.getElementById("cor").value.length > 0){
+        //        validacaocor = true;
+        //
+        //    }else{
+        //         $("#msgcor").html("<font color='red'>Preencha o campo Cor/Etnia!</font>");
+        //
+        //    }
+        //    if(document.getElementById("escolaridade").value.length > 0){
+        //        validacaoescolaridade = true;
+        //
+        //    }else{
+        //         $("#msgescolaridade").html("<font color='red'>Preencha o campo Escolaridade!</font>");
+        //
+        //    }
+        //    if(document.getElementById("uf").value.length > 0){
+        //        validacaouf = true;
+        //
+        //    }else{
+        //         $("#msguf").html("<font color='red'>Preencha o campo Estado!</font>");
+        //
+        //    }
+        //    if(document.getElementById("cidade").value.length > 0){
+        //        validacaocidade = true;
+        //
+        //    }else{
+        //         $("#msgcidade").html("<font color='red'>Preencha o campo Cidade!</font>");
+        //
+        //    }
+        //
+        //    if(document.getElementById("telefone").value.length > 0){
+        //        validacaotelefone = true;
+        //
+        //    }else{
+        //         $("#msgtelefone").html("<font color='red'>Preencha o campo Celular!</font>");
+        //
+        //    }
+        //    if(document.getElementById("email").value.length > 0){
+        //
+        //
+        //    }else{
+        //         $("#msgemail").html("<font color='red'>Preencha o campo Email!</font>");
+        //
+        //    }
+        //    if(document.getElementById("salario").value.length > 0){
+        //        validacaosalario = true;
+        //
+        //    }else{
+        //         $("#msgsalario").html("<font color='red'>Preencha o campo Salario!</font>");
+        //
+        //    }
+        //    if(document.getElementById("data_admissao").value.length > 0){
+        //        validacaodata_admissao = true;
+        //
+        //    }else{
+        //         $("#msgdata_admissao").html("<font color='red'>Preencha o campo Data de Admissão!</font>");
+        //
+        //    }
+        //
+        //
+        //    if(
+        //      validacaonome == true &&
+        //       validacaorg == true &&
+        //       validacaocpf == true &&
+        //       validacaodata_de_nascimento == true &&
+        //       validacaonacionalidade == true &&
+        //       validacaocor == true &&
+        //       validacaoescolaridade == true &&
+        //       validacaouf == true &&
+        //       validacaocidade == true &&
+        //       validacaocomplemento == true &&
+        //       validacaotelefone == true &&
+        //       validacaoemail == true &&
+        //       validacaosalario == true &&
+        //       validacaodata_admissao == true
+        //    ){
+        //     $("#cadastro").submit();
+        //    }else{
+        //
+        //     return false;
+        //    }
+        //
+        //
+				//  });
 		});
 });
 </script>
@@ -92,7 +193,7 @@ $(function() {
      <legend>Dados Pessoais</legend>
     	<label>Nome</label>
     	<input type="text" name="nome" id="nome"/>
-    	<div id="msgNome"></div>
+    	<div id="msgnome"></div>
     	<br/>
 
     	<label>RG</label>
@@ -106,7 +207,7 @@ $(function() {
     	<br/>
 
     	<label>Data de Nascimento</label>
-    	<input type="date" name="data_de_nascimento" id="data_de_nascimento"/>
+    	<input type="date" name="data_de_nascimento" size="9" id="data_de_nascimento"/>
     	<div id="msgdata_de_nascimento"></div>
     	<br/>
 
@@ -159,7 +260,6 @@ $(function() {
     	<div id="msguf"></div>
     	<br/>
 
-
     	<label>Cidade</label>
     	<input type="text" name="cidade" id="cidade"/>
     	<div id="msgcidade"></div>
@@ -169,24 +269,35 @@ $(function() {
     	<textarea type="text" name="complemento" placeholder="Digite todos os dados e referências do endereço" row="30"></textarea>
       <div id="msgcomplemento"></div>
     	<br/>
-    	<label>Data de Admissão</label>
-    	<input type="date" name="data_admissao" id="data_admissao"/>
-    	<div id="msgdata_admissao"></div>
     	<br/>
-    	<label>Salario</label>
-    	<input id="salario" type="text" name="salario" />
-    	<br/>
-    	<label>Telefone Celular</label>
-    	<input type="text" name="telefone" id="telefone"/>
-    	<br/>
-    	<label>Email</label>
-    	<input type="text" name="email" />
-    	<br/>
+
    </fieldset>
    <fielset>
-       <legend>Dados Empresariais</field>
+       <legend>Dados Empresariais</legend>
+        <label>Telefone Celular</label>
+       	<input type="text" name="telefone" id="telefone"/>
+        <div id="msgtelefone"></div>
+       	<br/>
+       	<br/>
+
+        <label>Email</label>
+        <input type="text" name="email" />
+        <div id="msgemail"></div>
+        <br/>
+        <br/>
+
+        <label>Salario</label>
+      	<input id="salario" type="text" name="salario" />
+        <div id="msgsalario"></div>
+      	<br/>
+      	<br/>
+
+        <label>Data de Admissão</label>
+      	<input type="date" name="data_admissao" size="9" id="data_admissao"/>
+      	<div id="msgdata_admissao"></div>
+
    </fieldset>
    </br>
    </br>
-   <button class="btn btn-success" id="btn_salvar" type="submit">Enviar</button>
+   <center><button class="btn btn-success" id="btn_salvar" type="submit">Enviar</button></center>
 </form>
