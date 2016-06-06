@@ -6,6 +6,9 @@
 <script src="https://raw.githubusercontent.com/plentz/jquery-maskmoney/master/dist/jquery.maskMoney.min.js"></script>
 
 <script>
+function goBack() {
+    window.history.back();
+}
 
 $("#salario").change(function(){
            $("#salario").maskMoney({decimal:",", thousands:"."});
@@ -299,5 +302,5 @@ $(function() {
    </fieldset>
    </br>
    </br>
-   <center><button class="btn btn-success" id="btn_salvar" type="submit">Enviar</button></center>
+   <center> <button class= "btn btn-danger" onclick="goBack()">Voltar</button>  <button class="btn btn-success" id="btn_salvar" type="submit">Enviar</button></center>
 </form>
